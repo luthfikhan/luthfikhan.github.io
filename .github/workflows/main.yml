@@ -20,7 +20,7 @@ jobs:
           flutter upgrade
           flutter config --enable-web
           flutter pub get
-          flutter build web —release
+          flutter build web --release
       - name: Add New Branch
         run: |
           cd build/web
