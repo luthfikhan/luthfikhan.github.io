@@ -37,11 +37,3 @@ jobs:
           git add --all
           git commit -m "update"
           git push origin gh-pages -f
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Run Python server
-        run: |
-          cd build/web
-          python -m http.server 8000
