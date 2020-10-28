@@ -5,19 +5,24 @@ on:
       - master
 jobs:
   build:
-    name: Build Web
+    
     env:
       my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
-      - run: flutter config --enable-web
-      - run: flutter pub get
-      - run: flutter build web --release
-      - run: |
+          channel: 'beta'
+      - name: Build Web
+        run: |
+          flutter channel beta
+          flutter upgrade
+          flutter config --enable-web
+          flutter pub get
+          flutter build web --release
+      - name: Add New Branch
+        run: |
           cd build/web
           git init
           # type configurations: your user.email and user.name followed lines 
@@ -32,3 +37,11 @@ jobs:
           git add --all
           git commit -m "update"
           git push origin gh-pages -f
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Run Python server
+        run: |
+          cd build/web
+          python -m http.server 8000
