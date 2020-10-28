@@ -80,7 +80,7 @@ class _PortofolioState extends State<Portofolio> {
         children: List<Widget>.generate(
             list.length,
             (index) => Container(
-                  margin: EdgeInsets.only(bottom: 16),
+                  margin: EdgeInsets.fromLTRB(16, 0, 16, 16),
                   width: conSize,
                   height: conSize,
                   color: Theme.of(context).primaryColorLight,
