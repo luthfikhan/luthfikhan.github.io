@@ -1,5 +1,7 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_web/components/custom_transition.dart';
 import 'package:flutter_web/constans.dart';
 import 'package:flutter_web/model/drawer_property_model.dart';
@@ -14,7 +16,7 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> with TickerProviderStateMixin {
-  bool _isLoading = true, _drawerVisibility = false;
+  bool _drawerVisibility = false;
   int _pageIndex = 0;
   AnimationController _iconAnimationCon;
   PageController _pageViewCon = PageController();
@@ -201,9 +203,10 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        _isLoading = false;
-      });
+      final loader = document.getElementsByClassName('loading');
+      if (loader.isNotEmpty) {
+        loader.first.remove();
+      }
     });
 
     super.initState();
@@ -221,12 +224,6 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
       color: Theme.of(context).primaryColorDark,
       child: SafeArea(
         child: LayoutBuilder(builder: (context, cons) {
-          if (_isLoading) {
-            return SpinKitFoldingCube(
-              color: Theme.of(context).accentColor,
-            );
-          }
-
           // if (cons.maxWidth >= _dekstopWidthBreakpoint) {
           return Container(
             child: Row(
