@@ -86,8 +86,7 @@ class Home extends StatelessWidget {
                         message: 'LinkedIn',
                         child: InkWell(
                           onTap: () async {
-                            await launch(
-                                'https://www.linkedin.com/in/luthfikhan/');
+                            await launch(linkedinLink);
                           },
                           child: Icon(FontAwesomeIcons.linkedinIn,
                               size: 28, color: Colors.white),
@@ -100,7 +99,7 @@ class Home extends StatelessWidget {
                         message: 'Github',
                         child: InkWell(
                           onTap: () async {
-                            await launch('https://www.github.com/luthfikhan/');
+                            await launch(githubLink);
                           },
                           child: Icon(FontAwesomeIcons.github,
                               size: 28, color: Colors.white),
@@ -113,8 +112,7 @@ class Home extends StatelessWidget {
                         message: 'Instagram',
                         child: InkWell(
                           onTap: () async {
-                            await launch(
-                                'https://www.instagram.com/luthfikhan_/');
+                            await launch(igLink);
                           },
                           child: Icon(FontAwesomeIcons.instagram,
                               size: 28, color: Colors.white),
@@ -130,15 +128,17 @@ class Home extends StatelessWidget {
                       PrimaryButton(
                         buttonText: 'Hire Me',
                         onTap: () async {
-                          await launch('mailto:luthfikhoirulanwar55@gmail.com');
+                          await launch('mailto:$email');
                         },
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 8),
                       ),
                       SecondaryButton(
-                        buttonText: 'Portofolio',
-                        onTap: () {},
+                        buttonText: 'Resume',
+                        onTap: () async {
+                          await launch(cvLink);
+                        },
                       )
                     ],
                   )

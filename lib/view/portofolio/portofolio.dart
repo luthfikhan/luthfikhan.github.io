@@ -46,18 +46,20 @@ class _PortofolioState extends State<Portofolio> {
     PortofolioModel(
         image: 'assets/portofolio/sentragro.png',
         title: 'Sentragro Kios',
+        link: sentragroLink,
         desc: 'Aplikasi PoS dalam bidang pertanian'),
     PortofolioModel(
         image: 'assets/portofolio/catering.png',
-        title: 'Pramusaji Catering',
+        title: 'Pramusaji Consumer',
+        link: pramusajiConsumerLink,
         desc: ''),
     PortofolioModel(
         image: 'assets/portofolio/sinoman.png',
         title: 'Pramusaji Sinoman',
+        link: pramusajiSinomanLink,
         desc: '')
   ];
 
-  // TODO: link portofolio yang belum
   List<Widget> _pages(double conSize, int maxLength) {
     if (_portofolio.length < maxLength) {
       for (var i = 0; i < maxLength; i++) {

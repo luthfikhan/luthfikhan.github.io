@@ -13,8 +13,8 @@ class Profile extends StatelessWidget {
     ProfileModel(title: 'Name', content: 'Luthfi Khoirul Anwar'),
     ProfileModel(title: 'Birth', content: 'Sukoharjo, 29 Juli 1998'),
     ProfileModel(title: 'Address', content: 'Sukoharjo Jawa Tengah'),
-    ProfileModel(title: 'Wa', content: '085156134868'),
-    ProfileModel(title: 'Email', content: 'luthfikhoirulanwar55@gmail.com')
+    ProfileModel(title: 'Wa', content: nomorTelp),
+    ProfileModel(title: 'Email', content: email)
   ];
 
   Widget _imageContainer(BuildContext context, BoxConstraints cons) {
